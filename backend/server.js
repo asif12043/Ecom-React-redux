@@ -1,8 +1,9 @@
-require("dotenv").config();
-const express = require('express');
+const app = require('./app')
 
-const app = express();
+const dotenv= require("dotenv");
+const { model } = require('mongoose');
+dotenv.config({path:'backend/config/config.env'})
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, ()=> console.log(`server running port ${PORT}`))
+app.listen(process.env.PORT, ()=>{
+    console.log(`Server started on PORT:${process.env.PORT} in ${process.env.NODE_ENV} mode.`)
+})
